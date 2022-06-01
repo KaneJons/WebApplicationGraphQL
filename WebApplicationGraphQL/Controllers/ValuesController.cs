@@ -28,12 +28,10 @@ namespace WebApplicationGraphQL.Controllers
         
         
 
-
         // POST api/<ValuesController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
-
         }
 
         // PUT api/<ValuesController>/5

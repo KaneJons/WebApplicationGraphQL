@@ -6,25 +6,47 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplicationGraphQL.Models;
+using WebApplicationGraphQL.ResponseTypes;
 
 namespace WebApplicationGraphQL.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly QueryCharacter _queryCharacter;
+        public HomeController(ILogger<HomeController> logger,QueryCharacter queryCharacter)
         {
             _logger = logger;
+            _queryCharacter = queryCharacter;
         }
 
-        public IActionResult Index()
-        {
-            return View();
+        public async Task<IActionResult> IndexAsync()
+        {  
+                var model = await _queryCharacter.GetAllQuers();
+
+                int hour = DateTime.Now.Hour;
+                ViewBag.Greeting = "";
+                if (hour <= 11)
+                {
+                    ViewBag.Greeting = "Доброе утро";
+                }
+                else if (hour <= 17)
+                {
+                    ViewBag.Greeting = "Добрый день";
+                }
+                else
+                {
+                    ViewBag.Greeting = "Добрый вечер";
+                }
+                return View(model);
+            
         }
 
-        public IActionResult Privacy()
+        
+        
+        public IActionResult TableQuery()
         {
+            
             return View();
         }
 

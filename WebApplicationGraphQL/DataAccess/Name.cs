@@ -9,5 +9,7 @@ namespace WebApplicationGraphQL.DataAccess
     {
         public string Full { get; set; }
         public string Native { get; set; }
+
+        
     }
 }

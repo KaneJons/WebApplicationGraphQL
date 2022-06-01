@@ -1,14 +1,16 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApplicationGraphQL.DataAccess
 {
+    
     public class Character
     {
-        public ICollection<Name> Names { get; set; }
-        public ICollection<Media> Medias { get; set; }
+        public Name Name { get; set; }
+        public Media Media { get; set; }
         public string Gender { get; set; }
         public string Description { get; set; }
     }
@@ -17,4 +19,6 @@ namespace WebApplicationGraphQL.DataAccess
     {
         public ICollection<Character> Characters { get; set; }
     }
+
+    
 }

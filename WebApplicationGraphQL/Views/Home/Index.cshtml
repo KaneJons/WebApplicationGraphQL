@@ -1,8 +1,44 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model WebApplicationGraphQL.DataAccess.Page
+@{
+    
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <h1 align="center">@ViewBag.Greeting,пользователь,приятного просмотра</h1> 
+</head>
+<body>
+    <h1 align="center">таблицы аниме персонажей</h1>
+
+    <table class="table" border="1">
+        <thead>
+            <tr style="background-color:#ddd;">
+                <th>Имя</th>
+                <th>Участие в</th>
+                <th>Пол</th>
+                <th>Информация</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var emp in Model.Characters)
+            {
+                <tr>
+                    <td>@emp.Name.Full</td>
+                    <td>
+                    @String.Join(", ", emp.Media.Nodes.Select(p => p.Title.English).ToArray().Where(p=>p !=null));
+                    </td>
+                    <td>@emp.Gender</td>
+                    <td>@emp.Description</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</body>
+
+
+
+</html>

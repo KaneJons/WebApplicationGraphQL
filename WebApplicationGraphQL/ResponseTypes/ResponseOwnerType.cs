@@ -6,8 +6,9 @@ using WebApplicationGraphQL.DataAccess;
 
 namespace WebApplicationGraphQL.ResponseTypes
 {
+   
     public class ResponseOwnerType
     {
-        public Page Page { get; set; }
+        public Page Page{ get; set; }
     }
 }

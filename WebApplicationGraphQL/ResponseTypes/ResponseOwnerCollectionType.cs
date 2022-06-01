@@ -8,6 +8,6 @@ namespace WebApplicationGraphQL.ResponseTypes
 {
     public class ResponseOwnerCollectionType
     {
-        public List<Page> Pages { get; set; }
+        public Page Page{ get; set; }
     }
 }

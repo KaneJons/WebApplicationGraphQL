@@ -19,35 +19,44 @@ namespace WebApplicationGraphQL
             _client = client;
         }
 
-        public async Task<List<Page>>GetAllQuers()
+        public async Task<Page>GetAllQuers()
         {
             var query = new GraphQLRequest
             {
-                Query = @"query Nice{
-                            Page{
-                              characters(isBirthday:false){
-                                 name {
-                                    full
-                                    native
-                                       }
-                                 gender
-                                 description
-                                 media{
-                                   nodes{
-                                    title {
-                                      english
-                                      native
-                                          }
-                                         }
-                                        }
-                                       }
-                                      }
-                                     }"
+                Query = @"
+                        query {
+Page
+{
+characters(isBirthday:false)
+{
+name {
+full
+native
+}
+gender
+description
+
+  media
+  {
+    nodes
+    {
+      title {
+        english
+        native
+      }
+    }
+  }
+}
+}
+}
+"
             };
             var response = await _client.SendQueryAsync<ResponseOwnerCollectionType>(query);
-            
-            return response.Data.Pages;
+
+            return response.Data.Page;
             
         }
+
+        
     }
 }
