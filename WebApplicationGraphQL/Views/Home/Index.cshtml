@@ -24,8 +24,8 @@
 
             @foreach (var emp in Model.Characters)
             {
-                <tr>
-                    <td>@emp.Name.Full</td>
+                <tr align="center">
+                    <td>@emp.Name.Full <br>На японском:<p style="white-space:nowrap">@emp.Name.Native</p></td>
                     <td>
                     @String.Join(", ", emp.Media.Nodes.Select(p => p.Title.English).ToArray().Where(p=>p !=null));
                     </td>
