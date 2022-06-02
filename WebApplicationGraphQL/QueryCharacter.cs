@@ -53,8 +53,7 @@ description
             };
             var response = await _client.SendQueryAsync<ResponseOwnerCollectionType>(query);
 
-            return response.Data.Page;
-            
+            return response.Data.Page;   
         }
 
         

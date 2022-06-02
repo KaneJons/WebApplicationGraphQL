@@ -41,8 +41,6 @@ namespace WebApplicationGraphQL.Controllers
                 return View(model);
             
         }
-
-        
         
 
 
