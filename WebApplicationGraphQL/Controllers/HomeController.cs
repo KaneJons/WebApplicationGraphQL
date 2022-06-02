@@ -44,11 +44,7 @@ namespace WebApplicationGraphQL.Controllers
 
         
         
-        public IActionResult TableQuery()
-        {
-            
-            return View();
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
